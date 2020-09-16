@@ -1,6 +1,6 @@
 ### Type of change made:
-- [] New feature (non-breaking change which adds functionality)
-- [] Testing - building tests
+- [ ] New feature (non-breaking change which adds functionality)
+- [x] Testing - building tests
 - [] Formatting - no new features
 - [] Styling- no new features
 - [] Bugfix (non-breaking change which fixes an issue)
