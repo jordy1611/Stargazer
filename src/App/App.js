@@ -22,7 +22,7 @@ class App extends Component {
   }
 
 componentDidMount = async () => {
-  // setTimeout(() => {this.setState({ landing: false })}, 4000)
+  setTimeout(() => {this.setState({ landing: false })}, 6000)
 
   console.log('landing', this.state.landing)
   const prevWeek = getPreviousWeek()
