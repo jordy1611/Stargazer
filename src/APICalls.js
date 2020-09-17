@@ -9,7 +9,6 @@ export const getDemoImage = async() => {
 export const getImageToday = async() => {
   const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}`)
   const data = await response.json()
-  // console.log('inside', data)
   return data
 }
 
