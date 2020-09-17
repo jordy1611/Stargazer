@@ -9,11 +9,22 @@ class HomePage extends Component {
     super(props);
     this.state = {
       isLanding: false,
+      currentImage: {},
+      dayCounter: 0,
+      thisWeekImages: this.props.thisWeekImages
     };
+    this.thisWeekImages = this.props.thisWeekImages
   }
 
   componentDidMount() {
+    console.log('before all', this.props.thisWeekImages)
+    console.log('all', this.state.thisWeekImages)
     // setTimeout(() => {this.setState({ isLanding: false })}, 4000)
+    // this.setState({ thisWeekImages: this.props.thisWeekImages });
+    const currentImage = this.thisWeekImages['0']
+    console.log('current',currentImage)
+    this.setState({ currentImage: currentImage })
+    console.log('2',this.state)
   }
 
   render() {
@@ -23,6 +34,7 @@ class HomePage extends Component {
           <Landing/>
         ) ||
         <ImagePage
+          image={this.state.currentImage}
         />
         }
       </section>
