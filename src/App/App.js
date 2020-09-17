@@ -5,6 +5,7 @@ import Landing from '../Landing/Landing'
 import { getImageByDate } from '../APICalls'
 import { getPreviousWeek }from '../helpers.js'
 
+
 class App extends Component {
   constructor() {
     super();
@@ -22,9 +23,9 @@ class App extends Component {
   }
 
 componentDidMount = async () => {
+  console.log(process.env.URL_KEY)
   setTimeout(() => {this.setState({ landing: false })}, 6000)
 
-  console.log('landing', this.state.landing)
   const prevWeek = getPreviousWeek()
   const today = prevWeek.shift()
   this.setState({ todaysDate: today, prevWeekDates: prevWeek })
@@ -47,32 +48,34 @@ componentDidMount = async () => {
 }
   render() {
     return (
-      <main className="App">
-      { this.state.landing &&
-        <Landing />
-      }
-      {this.state.todayImage &&
-      <img src={this.state.todayImage.hdurl}/>
-      }
-      {this.state.prevWeekImages[this.state.prevWeekDates[0]] &&
-      <img src={this.state.prevWeekImages[this.state.prevWeekDates[0]].hdurl}/>
-      }
-      {this.state.prevWeekImages[this.state.prevWeekDates[1]] &&
-      <img src={this.state.prevWeekImages[this.state.prevWeekDates[1]].hdurl}/>
-      }
-      {this.state.prevWeekImages[this.state.prevWeekDates[2]] &&
-      <img src={this.state.prevWeekImages[this.state.prevWeekDates[2]].hdurl}/>
-      }
-      {this.state.prevWeekImages[this.state.prevWeekDates[3]] &&
-      <img src={this.state.prevWeekImages[this.state.prevWeekDates[3]].hdurl}/>
-      }
-      {this.state.prevWeekImages[this.state.prevWeekDates[4]] &&
-      <img src={this.state.prevWeekImages[this.state.prevWeekDates[4]].hdurl}/>
-      }
-      {this.state.prevWeekImages[this.state.prevWeekDates[5]] &&
-      <img src={this.state.prevWeekImages[this.state.prevWeekDates[5]].hdurl}/>
-      }
-      </main>
+      <Router>
+        <main className="App">
+        { this.state.landing &&
+          <Landing />
+        }
+        {this.state.todayImage &&
+        <img src={this.state.todayImage.hdurl}/>
+        }
+        {this.state.prevWeekImages[this.state.prevWeekDates[0]] &&
+        <img src={this.state.prevWeekImages[this.state.prevWeekDates[0]].hdurl}/>
+        }
+        {this.state.prevWeekImages[this.state.prevWeekDates[1]] &&
+        <img src={this.state.prevWeekImages[this.state.prevWeekDates[1]].hdurl}/>
+        }
+        {this.state.prevWeekImages[this.state.prevWeekDates[2]] &&
+        <img src={this.state.prevWeekImages[this.state.prevWeekDates[2]].hdurl}/>
+        }
+        {this.state.prevWeekImages[this.state.prevWeekDates[3]] &&
+        <img src={this.state.prevWeekImages[this.state.prevWeekDates[3]].hdurl}/>
+        }
+        {this.state.prevWeekImages[this.state.prevWeekDates[4]] &&
+        <img src={this.state.prevWeekImages[this.state.prevWeekDates[4]].hdurl}/>
+        }
+        {this.state.prevWeekImages[this.state.prevWeekDates[5]] &&
+        <img src={this.state.prevWeekImages[this.state.prevWeekDates[5]].hdurl}/>
+        }
+        </main>
+      </Router>
     );
   }
 }
