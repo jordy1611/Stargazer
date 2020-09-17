@@ -18,3 +18,6 @@ export const getImageByDate = async (date) => {
 
   return data
 }
+
+export const getPrevWeekImages = async (dates) => {
+}
