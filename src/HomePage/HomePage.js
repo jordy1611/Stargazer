@@ -4,22 +4,26 @@ import './HomePage.scss';
 import Landing from '../Landing/Landing'
 
 class HomePage extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      isLanding: true,
+      // isLanding: true,
     };
   }
 
   componentDidMount() {
-    setTimeout(() => {this.setState({ isLanding: false })}, 4000)
+    // setTimeout(() => {this.setState({ isLanding: false })}, 4000)
   }
 
   render() {
     return(
       <section className='home-page'>
-        {this.state.isLanding &&
-          <Landing />
+        {(this.state.isLanding &&
+          <Landing/>
+        ) ||
+        <ImagePage
+        
+        />
         }
       </section>
     )
