@@ -5,6 +5,7 @@ import App from './App/App';
 import './index.scss';
 import * as serviceWorker from './serviceWorker';
 
+
 console.log(process.env)
 ReactDOM.render(
  <React.StrictMode>
@@ -20,3 +21,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+require('dotenv').config();
