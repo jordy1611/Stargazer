@@ -1,29 +1,35 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
-// import component from '../folder/file';
 import './App.scss';
-import { getImageToday, getImageByDate, getDemoImage} from '../APICalls'
+import { getImageByDate } from '../APICalls'
 import { getPreviousWeek }from '../helpers.js'
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      todaysDate: '',
-      prevWeekDates: [],
+      landing: true,
+      todaysDate: 'no today',
+      prevWeekDates: ['no week'],
       todayImage: {},
       prevWeekImages: [],
-
+      searchDate: '',
+      searchImage: {},
     }
   }
 
 
-componentDidMount() {
+
+componentDidMount = async () => {
   const prevWeek = getPreviousWeek()
   this.setState({todaysDate: prevWeek[0], prevWeekDates: prevWeek})
-
-  // console.log('today date', this.state.todaysDate)
-  // const todayImage = getImageByDate(this.state.todaysDate)
+  // todaysDate may be completely unecessary
+  try {
+    const todayImage = await getImageByDate(prevWeek[0])
+    this.setState({ todayImage: todayImage})
+  } catch(error) {
+    console.error(error)
+  }
 
 }
   render() {
