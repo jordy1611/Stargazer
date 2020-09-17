@@ -7,7 +7,7 @@ const Landing = () => {
   return(
     <article className='landing'>
     <img className='landing-image' src={landingImage} alt='image of Jupiter' />
-      <h1 className='landing-title'>Stargazer</h1>
+      <h1 className='landing-title'>STARGAZER</h1>
       <p className='landing-description'>Explore The Stars</p>
     </article>
   )
