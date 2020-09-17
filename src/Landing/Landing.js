@@ -1,14 +1,14 @@
 import React from 'react';
 import './Landing.scss';
-import landingImage from '../assets/LandingJupiter.jpg'
+import landingImage from '../assets/landing-jupiter.jpg'
 
 
 const Landing = () => {
   return(
     <article className='landing'>
-      <h1 className='title'>Stargazer</h1>
-      <p>Explore The Stars Through NASA's Atronomy Picture Of The Day</p>
-      <img className='landing-image' src={landingImage} alt='image of Jupiter' />
+    <img className='landing-image' src={landingImage} alt='image of Jupiter' />
+      <h1 className='landing-title'>Stargazer</h1>
+      <p className='landing-description'>Explore The Stars</p>
     </article>
   )
 }
