@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
 import './App.scss';
 import Landing from '../Landing/Landing'
+import HomePage from '../HomePage/HomePage'
 import { getImageByDate } from '../APICalls'
 import { getPreviousWeek }from '../helpers.js'
 
@@ -10,7 +11,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      landing: true,
       todaysDate: 'no today',
       prevWeekDates: ['no week'],
       todayImage: {},
@@ -23,8 +23,6 @@ class App extends Component {
   }
 
 componentDidMount = async () => {
-  console.log(process.env.URL_KEY)
-  setTimeout(() => {this.setState({ landing: false })}, 6000)
 
   const prevWeek = getPreviousWeek()
   const today = prevWeek.shift()
@@ -49,10 +47,14 @@ componentDidMount = async () => {
   render() {
     return (
       <Router>
+      <Route
+      exact path = '/'
+      render={() => {
+        return (
+          <HomePage />
+        )
+      }}/>
         <main className="App">
-        { this.state.landing &&
-          <Landing />
-        }
         {this.state.todayImage &&
         <img src={this.state.todayImage.hdurl}/>
         }
