@@ -18,14 +18,15 @@ class ImagePage extends Component {
   componentDidMount() {
 
   }
-  
+
   render() {
     return(
       <article className='image-page'>
-
+        <h1>TEST</h1>
       </article>
     )
   }
 
   // buttons shouldn't chage based off of state, only image
 }
+export default ImagePage
