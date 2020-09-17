@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
 import './App.scss';
+import Landing from '../Landing/Landing'
 import { getImageByDate } from '../APICalls'
 import { getPreviousWeek }from '../helpers.js'
 
@@ -21,7 +22,8 @@ class App extends Component {
   }
 
 componentDidMount = async () => {
-  this.setState({ landing: false })
+  setTimeout(() => {this.setState({ landing: false })}, 6000)
+
   console.log('landing', this.state.landing)
   const prevWeek = getPreviousWeek()
   const today = prevWeek.shift()
@@ -44,9 +46,11 @@ componentDidMount = async () => {
 
 }
   render() {
-    console.log('render', this.state)
     return (
       <main className="App">
+      { this.state.landing &&
+        <Landing />
+      }
       {this.state.todayImage &&
       <img src={this.state.todayImage.hdurl}/>
       }

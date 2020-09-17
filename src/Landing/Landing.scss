@@ -1,0 +1,42 @@
+
+
+.landing {
+  background-color: black;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0em 1fr 0em;
+  align-content: center;
+}
+
+.landing > div {
+  padding: 0;
+  margin: 16em 0 0 0;
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  z-index: 1;
+}
+
+.landing-image {
+  align-self: center;
+  grid-column: 2 / 2;
+  grid-row: 1 / 4;
+  width: 55em;
+  z-index: 0;
+  margin: 0;
+}
+
+.landing-title {
+  color: white;
+  font-size: 6em;
+  margin: 0;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.landing-description {
+  color: white;
+  font-size: 3em;
+  margin-top: 2em;
+  // width: 18em;
+  z-index: 1;
+}
