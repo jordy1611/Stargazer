@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom
 import './ImagePage.scss';
 import upArrow from '../assets/up-arrow.png'
 import downArrow from '../assets/down-arrow.png'
+import nasaLogo from '../assets/nasa.png'
 // import Landing from '../Landing/Landing'
 // import ImagePage from '../ImagePage/ImagePage'
 
@@ -44,10 +45,9 @@ class ImagePage extends Component {
   }
 
   render() {
-    return(
-      <section className='home-page'>
-        {this.props.thisWeekImages.length > 6 &&
-          <article>
+    return (
+      this.props.thisWeekImages.length > 6 ?
+          <article className='image-page'>
             <div className='left-image-page-column'>
               <div className='date-display'>
                 <img src={upArrow} alt='up arrow'/>
@@ -70,8 +70,7 @@ class ImagePage extends Component {
               <p className='my-favorites-toggle'>My Favorites</p>
             </div>
           </article>
-        }
-      </section>
+      : <img className='nasa-logo' src={nasaLogo} alt='nasa logo'/>
     )
   }
 }
