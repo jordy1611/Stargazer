@@ -26,11 +26,19 @@ class ImagePage extends Component {
   }
 
   displayNextDay = () => {
-    const nextDay = this.state.day + 1
-    const nextImage = this.props.thisWeekImages[nextDay]
-    this.setState({ currentImage: nextImage })
-    console.log(nextDay)
-    console.log('days', this.state.currentImage, nextImage)
+    if (this.state.day < 6) {
+      const nextDay = this.state.day + 1
+      const nextImage = this.props.thisWeekImages[nextDay]
+      this.setState({ currentImage: nextImage })
+    }
+  }
+
+  displayPreviousDay = () => {
+    if (this.state.day > 0) {
+      const prevDay = this.state.day - 1
+      const prevImage = this.props.thisWeekImages[prevDay]
+      this.setState({ currentImage: prevImage })
+    }
   }
 
   render() {
@@ -39,7 +47,7 @@ class ImagePage extends Component {
         {this.props.thisWeekImages.length > 6 &&
           <div>
           <h1>ImagePage</h1>
-          <img className='large-image' alt={this.state.currentImage.explanation} src={this.state.currentImage.hdurl} onClick={this.displayNextDay}/>
+          <img className='large-image' alt={this.state.currentImage.explanation} src={this.state.currentImage.hdurl} />
           </div>
         }
       </section>
