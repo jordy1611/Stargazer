@@ -72,6 +72,7 @@ componentDidMount = async () => {
               {!this.state.isLanding && this.state.thisWeekImages.length > 6 &&
                 <ImagePage
                 thisWeekImages={this.state.thisWeekImages}
+                today={this.state.todaysDate}
                 />
               }
               </div>

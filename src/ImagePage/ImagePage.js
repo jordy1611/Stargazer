@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
 import './ImagePage.scss';
+import upArrow from '../assets/up-arrow.png'
+import downArrow from '../assets/down-arrow.png'
 // import Landing from '../Landing/Landing'
 // import ImagePage from '../ImagePage/ImagePage'
 
@@ -45,10 +47,29 @@ class ImagePage extends Component {
     return(
       <section className='home-page'>
         {this.props.thisWeekImages.length > 6 &&
-          <div>
-          <h1>ImagePage</h1>
-          <img className='large-image' alt={this.state.currentImage.explanation} src={this.state.currentImage.hdurl} />
-          </div>
+          <article>
+            <div className='left-image-page-column'>
+              <div className='date-display'>
+                <img src={upArrow} alt='up arrow'/>
+                <p>{this.state.currentImage.date}</p>
+                <img src={downArrow} alt='down arrow'/>
+              </div>
+              <input type='date'/>
+              <p className='info-prompt'>Info</p>
+            </div>
+            <div className='mid-image-page-column'>
+            <img className='large-image' alt={this.state.currentImage.title} src={this.state.currentImage.hdurl} />
+              <div className='hidden-info'>
+                <p>{this.state.currentImage.title}</p>
+                <p>{this.state.currentImage.explanation}</p>
+                <p>{this.state.currentImage.copyright || ''}</p>
+              </div>
+            </div>
+            <div className='right-image-page-column'>
+              <p className='favorite-toggle'>Favorite</p>
+              <p className='my-favorites-toggle'>My Favorites</p>
+            </div>
+          </article>
         }
       </section>
     )
