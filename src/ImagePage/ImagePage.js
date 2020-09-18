@@ -18,7 +18,7 @@ class ImagePage extends Component {
 
   componentDidMount() {
     this.setState({ thisWeekImages: this.props.thisWeekImages})
-    this.setState({ currentImage: this.props.thisWeekImages[0]})
+    this.setState({ currentImage: this.props.thisWeekImages[1]})
     if(this.props.thisWeekImages.length > 6) {
     }
   }
@@ -54,7 +54,6 @@ class ImagePage extends Component {
                 <p className='current-date'>{this.state.currentImage.date}</p>
                 <nav className='down-arrow'></nav>
               </div>
-              <input className='date-input' type='date' placeholder='search'/>
               <p className='info-prompt'>Info</p>
 
               <div className='hidden-info'>

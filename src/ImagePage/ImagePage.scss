@@ -15,35 +15,31 @@
     flex-direction: column;
     align-items: center;
     z-index: 0;
-    margin: $topTextMargin;
+    margin: 15vh 3vw 0 0;
     .up-arrow {
-      @include arrowSize(-135deg)
-      // margin: 0 .5em .3em .5em;
-      color: white;
-      // background-color: white;
+      @include arrowStyle(-135deg)
     }
     .current-date {
       @include sideText()
     }
     .down-arrow {
-      @include arrowSize(45deg)
-      // margin: .5em .5em 0 .5em;
+      @include arrowStyle(45deg)
     }
   }
-
-  .date-input {
-    grid-column: 1 / 1;
-    grid-row: 2 / 2;
-    @include sideInput()
-    margin: $midTextMargin;
-    z-index: 0;
-  }
+//  additional feature to add
+  // .date-input {
+  //   grid-column: 1 / 1;
+  //   grid-row: 2 / 2;
+  //   @include sideInput()
+  //   margin: $midTextMargin;
+  //   z-index: 0;
+  // }
 
   .info-prompt {
     grid-column: 1 / 1;
-    grid-row: 3 / 3;
+    grid-row: 2 / 2;
     @include sideText()
-    margin: $botTextMargin;
+    margin: 40vh 3vw 0 0;
     z-index: 0;
   }
 
@@ -82,7 +78,12 @@
     .hidden-copyright {
       background: $hiddenBackground;
       font-size: 1.5em;
+      border: solid white 5px;
+      border-top: solid black .2em;
+      border-radius: 0 0 .4em .4em;
+      margin-top: -1em;
       text-align: center;
+      padding-bottom: .2em;
     }
 
   }
@@ -90,10 +91,11 @@
     grid-row: 1 / 4;
     grid-column: 1 / 4;
     max-height: 100%;
-    max-width: 100%;
+    max-width: 70vw;
     justify-self: center;
+    align-self: center;
     z-index: 0;
-    // width: 3em;
+
   }
 
 
@@ -102,13 +104,13 @@
     grid-column: 3 / 3;
     grid-row: 1 / 1;
     @include sideText();
-    margin: $topTextMargin;
+    margin: 20.5vh 0 0 3vw;
   }
   .my-favorites-link {
     grid-column: 3 / 3;
     grid-row: 2 / 2;
     @include sideText();
-    margin: $midTextMargin;
+    margin: 40vh 0 0 3vw;
   }
 
 }
