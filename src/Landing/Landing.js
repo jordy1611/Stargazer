@@ -12,7 +12,7 @@ class Landing extends Component {
   }
 
   componentDidMount = async()  => {
-    await setTimeout(() => {this.setState({ displayTitle: false })}, 3000)
+    await setTimeout(() => {this.setState({ displayTitle: false })}, 2000)
   }
 
   render() {

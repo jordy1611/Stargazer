@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
 import './App.scss';
 import Landing from '../Landing/Landing'
-import { getImageByDate } from '../APICalls'
+import ImagePage from '../ImagePage/ImagePage'
+import  { getImageByDate } from '../APICalls'
 import { getPreviousWeek }from '../helpers.js'
+
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      landing: true,
+      isLanding: false,
       todaysDate: 'no today',
-      prevWeekDates: ['no week'],
-      todayImage: {},
-      prevImage1: {},
-      prevWeekImages: {},
+      thisWeekDates: ['no week'],
+      thisWeekImages: [],
       imagesLoaded: 0,
       searchDate: '',
       searchImage: {},
@@ -22,57 +22,63 @@ class App extends Component {
   }
 
 componentDidMount = async () => {
-  setTimeout(() => {this.setState({ landing: false })}, 6000)
-
-  console.log('landing', this.state.landing)
+  // setTimeout(() => {this.setState({ isLanding: false })}, 4000)
   const prevWeek = getPreviousWeek()
-  const today = prevWeek.shift()
-  this.setState({ todaysDate: today, prevWeekDates: prevWeek })
-  try {
-    const todayImage = await getImageByDate(today)
-    await this.setState({ todayImage: todayImage, })
-  } catch(error) {
-    console.error(error)
-  }
+  const today = prevWeek[0]
+  this.setState({ todaysDate: today, thisWeekDates: prevWeek })
+  // try {
+  //   let thisWeekImages = this.state.thisWeekImages
+  //   thisWeekImages.push( await getImageByDate(today))
+  //   this.setState({ thisWeekImages: thisWeekImages })
+  // } catch(error) {
+  //   console.error(error)
+  // }
+
   for (let day of prevWeek) {
     try {
-      const prevWeekImages = this.state.prevWeekImages
-      prevWeekImages[day] = await getImageByDate(day)
-      await this.setState({ prevWeekImages: prevWeekImages })
+      const thisWeekImages = this.state.thisWeekImages
+      const dayImage = await getImageByDate(day)
+      thisWeekImages.push(dayImage)
+      this.setState({ thisWeekImages: thisWeekImages , imagesLoaded: thisWeekImages.length})
     } catch(error) {
       console.error(error)
     }
   }
 
+  // for (let i = 0; i < 7; i++) {
+  //   console.log(this.state.thisWeekDates[0])
+  //   try {
+  //     const thisWeekImages = this.state.thisWeekImages
+  //     const imageToday = await getImageByDate(this.state.thisWeekDates[i])
+  //     thisWeekImages[i] = imageToday
+  //     await this.setState({ thisWeekImages: thisWeekImages })
+  //   } catch(error) {
+  //     console.error(error)
+  //   }
+  // }
 }
   render() {
     return (
-      <main className="App">
-      { this.state.landing &&
-        <Landing />
-      }
-      {this.state.todayImage &&
-      <img src={this.state.todayImage.hdurl}/>
-      }
-      {this.state.prevWeekImages[this.state.prevWeekDates[0]] &&
-      <img src={this.state.prevWeekImages[this.state.prevWeekDates[0]].hdurl}/>
-      }
-      {this.state.prevWeekImages[this.state.prevWeekDates[1]] &&
-      <img src={this.state.prevWeekImages[this.state.prevWeekDates[1]].hdurl}/>
-      }
-      {this.state.prevWeekImages[this.state.prevWeekDates[2]] &&
-      <img src={this.state.prevWeekImages[this.state.prevWeekDates[2]].hdurl}/>
-      }
-      {this.state.prevWeekImages[this.state.prevWeekDates[3]] &&
-      <img src={this.state.prevWeekImages[this.state.prevWeekDates[3]].hdurl}/>
-      }
-      {this.state.prevWeekImages[this.state.prevWeekDates[4]] &&
-      <img src={this.state.prevWeekImages[this.state.prevWeekDates[4]].hdurl}/>
-      }
-      {this.state.prevWeekImages[this.state.prevWeekDates[5]] &&
-      <img src={this.state.prevWeekImages[this.state.prevWeekDates[5]].hdurl}/>
-      }
-      </main>
+      <Router>
+        <main className="App">
+          <Route
+          exact path = '/'
+          render={() => {
+            return(
+              <div>
+              {this.state.isLanding &&
+                <Landing />
+              }
+              {!this.state.isLanding && this.state.thisWeekImages.length > 6 &&
+                <ImagePage
+                thisWeekImages={this.state.thisWeekImages}
+                />
+              }
+              </div>
+          )
+          }}/>
+        </main>
+      </Router>
     );
   }
 }
