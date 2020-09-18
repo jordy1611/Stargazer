@@ -30,7 +30,7 @@ class ImagePage extends Component {
     return(
       <article className='image-page'>
         <h1>ImagePage</h1>
-        <img  className='large-image' src={this.state.hdurl}/>
+        <img  className='large-image' src={this.state.hdurl} onClick={this.props.backOneDay}/>
       </article>
     )
   }

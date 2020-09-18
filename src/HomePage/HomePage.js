@@ -8,7 +8,6 @@ class HomePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLanding: false,
       currentImage: {},
       day: 0,
       thisWeekImages: []
@@ -16,23 +15,19 @@ class HomePage extends Component {
   }
 
   componentDidMount() {
-    // setTimeout(() => {this.setState({ isLanding: false })}, 4000)
     this.getImageOfDay()
     this.setState({ thisWeekImages: this.props.thisWeekImages})
     if(this.props.thisWeekImages.length > 0) {
       console.log('success')
     }
-    // this.setState({ currentImage: 'fucks' })
-
   }
 
   getImageOfDay() {
     (this.props.thisWeekImages[0]) ? console.log('it exists') : console.log('it does not exist')
   }
 
-  backOneDate = () => {
-    let num = this.state.day + 1;
-    this.setState( {day : num })
+  backOneDay = () => {
+    console.log(this.state.thisWeekImages)
   }
 
   render() {
@@ -41,9 +36,11 @@ class HomePage extends Component {
         {this.state.isLanding &&
           <Landing/>
         }
-        {!this.state.isLanding && this.state.thisWeekImages.length > 0 &&
+        {!this.state.isLanding && this.state.thisWeekImages.length === 7 &&
           <ImagePage
-          image={this.props.thisWeekImages[0]}/>
+          image={this.props.thisWeekImages[this.state.day]}
+          backOneDay={this.backOneDay}
+          />
         }
       </section>
     )
