@@ -4,6 +4,8 @@
 .App {
   text-align: center;
   height: 100vh;
+  background-color: $backgroundColor;
+  color: $textColor;
 }
 
 .blockColorblindContent {

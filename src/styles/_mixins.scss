@@ -1,6 +1,12 @@
-@mixin arrowSize() {
-  width: 5em;
-  height: 2em;
+@mixin arrowSize($deg) {
+  color: $textColor;
+  border: solid;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  transform: rotate($deg);
+  -webkit-transform: rotate($deg);
+  width: 2.5em;
+  height: 2.5em;
 }
 
 @mixin sideText() {

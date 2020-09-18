@@ -6,6 +6,7 @@
   height: 100vh;
   grid-template-columns: 15% 70% 15%;
   grid-template-rows: 1fr 1fr 1fr;
+  padding: 0 2vw;
 
   .date-display {
     grid-column: 1 / 1;
@@ -14,16 +15,19 @@
     flex-direction: column;
     align-items: center;
     z-index: 0;
+    margin: $topTextMargin;
     .up-arrow {
-      @include arrowSize()
-      margin: 0 .5em .3em .5em;
+      @include arrowSize(-135deg)
+      // margin: 0 .5em .3em .5em;
+      color: white;
+      // background-color: white;
     }
     .current-date {
       @include sideText()
     }
     .down-arrow {
-      @include arrowSize()
-      margin: .5em .5em 0 .5em;
+      @include arrowSize(45deg)
+      // margin: .5em .5em 0 .5em;
     }
   }
 
@@ -31,6 +35,7 @@
     grid-column: 1 / 1;
     grid-row: 2 / 2;
     @include sideInput()
+    margin: $midTextMargin;
     z-index: 0;
   }
 
@@ -38,18 +43,19 @@
     grid-column: 1 / 1;
     grid-row: 3 / 3;
     @include sideText()
+    margin: $botTextMargin;
     z-index: 0;
   }
 
   .info-prompt:hover + .hidden-info {
-    opacity: .8;
+    opacity: .85;
     z-index: 1;
   }
   .hidden-info {
     grid-row: 1 / 3;
     grid-column: 2 / 2;
     z-index: 0;
-    opacity: 0.3;
+    opacity: 0;
     color: $textColor;
     padding: 5em;
     height: auto;
@@ -96,11 +102,13 @@
     grid-column: 3 / 3;
     grid-row: 1 / 1;
     @include sideText();
+    margin: $topTextMargin;
   }
   .my-favorites-link {
     grid-column: 3 / 3;
     grid-row: 2 / 2;
-    @include sideText()
+    @include sideText();
+    margin: $midTextMargin;
   }
 
 }

@@ -50,9 +50,9 @@ class ImagePage extends Component {
           <article className='image-page'>
 
               <div className='date-display'>
-                <img className='up-arrow' src={upArrow} alt='up arrow'/>
+                <nav className='up-arrow'></nav>
                 <p className='current-date'>{this.state.currentImage.date}</p>
-                <img className='down-arrow' src={downArrow} alt='down arrow'/>
+                <nav className='down-arrow'></nav>
               </div>
               <input className='date-input' type='date' placeholder='search'/>
               <p className='info-prompt'>Info</p>
