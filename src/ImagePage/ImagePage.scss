@@ -2,11 +2,14 @@
 @import '../styles/_mixins.scss';
 
 .image-page {
+  max-height: 100%;
   display: grid;
   grid-template-columns: 15% 70% 15%;
-  grid-template-rows: 33% 34% 33%;
+  grid-template-rows: 1fr;
 
   .left-image-page-column {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
     display: grid;
     .date-display {
       display: flex;
@@ -26,7 +29,7 @@
     }
 
     .date-input {
-
+      @include sideInput()
     }
 
     .info-prompt {
@@ -36,26 +39,63 @@
   }
 
   .mid-image-page-column {
-
+    grid-column: 2 / 2;
+    grid-row: 1 / 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     .large-image {
-      width: 100%;
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+      max-height: 100%;
+      justify-self: center;
+      z-index: 0;
     }
-
     .hidden-info {
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+      z-index: 0;
+      opacity: 0;
+      color: $textColor;
+      padding: 5em;
+      height: auto;
       .hidden-title {
-
+        background: $hiddenBackground;
+        width: auto;
+        padding-top: .3em;
+        text-align: center;
+        font-size: 1.8em;
+        margin-bottom: -.9em;
+        border: solid white 5px;
+        border-bottom: solid black .5em;
+        border-radius: .4em .4em 0 0;
       }
       .hidden-explanation {
+        background: $hiddenBackground;
+        padding: .5em .5em;
+        border: solid white 5px;
+        border-radius: .5em;
+        font-size: 1.5em;
+        line-height: 1.4;
 
       }
       .hidden-copyright {
-
+        background: $hiddenBackground;
+        font-size: 1.5em;
+        text-align: center;
       }
 
+    }
+    .hidden-info:hover {
+      z-index: 1;
+      opacity: 1;
+      transition: all .6s ease-in-out;
     }
   }
 
   .right-image-page-column {
+    grid-column: 3 / 3;
+    grid-row: 1 / 1;
     display: grid;
     .favorite-toggle {
       @include sideText()
