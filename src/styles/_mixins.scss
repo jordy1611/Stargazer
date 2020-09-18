@@ -1,0 +1,16 @@
+@mixin arrowSize() {
+  width: 5em;
+  height: 2em;
+}
+
+@mixin sideText() {
+  justify-self: center;
+  text-align: center;
+  margin: 0;
+  font-size: 1.2em;
+  border-top: solid 2px;
+  border-bottom: solid 2px;
+  width: 8em;
+  padding: .3em 0;
+  height: 1.25em
+}

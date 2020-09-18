@@ -1,2 +1,79 @@
 @import '../styles/_variables.scss';
 @import '../styles/_mixins.scss';
+
+.image-page {
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: 33% 34% 33%;
+
+  .left-image-page-column {
+    display: grid;
+    .date-display {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .up-arrow {
+        @include arrowSize()
+        margin: 0 .5em .3em .5em;
+      }
+      .current-date {
+        @include sideText()
+      }
+      .down-arrow {
+        @include arrowSize()
+        margin: .5em .5em 0 .5em;
+      }
+    }
+
+    .date-input {
+
+    }
+
+    .info-prompt {
+      @include sideText()
+
+    }
+  }
+
+  .mid-image-page-column {
+
+    .large-image {
+      width: 100%;
+    }
+
+    .hidden-info {
+      .hidden-title {
+
+      }
+      .hidden-explanation {
+
+      }
+      .hidden-copyright {
+
+      }
+
+    }
+  }
+
+  .right-image-page-column {
+    display: grid;
+    .favorite-toggle {
+      @include sideText()
+    }
+    .my-favorites-link {
+      @include sideText()
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+.right-image-page-column {
+  display: grid;
+}
