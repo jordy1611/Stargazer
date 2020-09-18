@@ -48,7 +48,7 @@ class ImagePage extends Component {
     return (
       this.props.thisWeekImages.length > 6 ?
           <article className='image-page'>
-            <div className='left-image-page-column'>
+
               <div className='date-display'>
                 <img className='up-arrow' src={upArrow} alt='up arrow'/>
                 <p className='current-date'>{this.state.currentImage.date}</p>
@@ -56,19 +56,17 @@ class ImagePage extends Component {
               </div>
               <input className='date-input' type='date' placeholder='search'/>
               <p className='info-prompt'>Info</p>
-            </div>
-            <div className='mid-image-page-column'>
-            <img className='large-image' alt={this.state.currentImage.title} src={this.state.currentImage.hdurl} />
+
               <div className='hidden-info'>
                 <p className='hidden-title'>{this.state.currentImage.title}</p>
                 <p className='hidden-explanation'>{this.state.currentImage.explanation}</p>
                 <p className='hidden-copyright'>{this.state.currentImage.copyright || ''}</p>
               </div>
-            </div>
-            <div className='right-image-page-column'>
+              <img className='large-image' alt={this.state.currentImage.title} src={this.state.currentImage.hdurl} />
+
               <p className='favorite-toggle'>Favorite</p>
               <p className='my-favorites-link'>My Favorites</p>
-            </div>
+
           </article>
       : <img className='nasa-logo' src={nasaLogo} alt='nasa logo'/>
     )
