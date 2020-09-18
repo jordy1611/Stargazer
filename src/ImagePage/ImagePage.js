@@ -1,40 +1,49 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
 import './ImagePage.scss';
+// import Landing from '../Landing/Landing'
+// import ImagePage from '../ImagePage/ImagePage'
 
 class ImagePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      date: '',
-      title: '',
-      info: '',
-      hdurl: '',
-      sdurl: '',
-      copyright: '',
-    }
+      currentImage: {},
+      day: 0,
+      thisWeekImages: []
+    };
   }
 
   componentDidMount() {
-    this.setState({
-      date: this.props.image.date,
-      title: this.props.image.title,
-      info: this.props.image.explanation,
-      sdurl: this.props.image.sdurl,
-      hdurl: this.props.image.hdurl,
-      copyright: this.props.image.copyright || '',
-    })
+    this.setState({ thisWeekImages: this.props.thisWeekImages})
+    this.setState({ currentImage: this.props.thisWeekImages[0]})
+    if(this.props.thisWeekImages.length > 6) {
+    }
+  }
+
+  getImageOfDay() {
+    console.console.log('getImageOfDay');
+    // this.setState({currentImage: this.props.thisWeekImages[this.state.day]})
+  }
+
+  displayNextDay() {
+    const nextDay = this.state.day + 1
+    console.log(nextDay)
   }
 
   render() {
     return(
-      <article className='image-page'>
-        <h1>ImagePage</h1>
-        <img  className='large-image' src={this.state.hdurl} onClick={this.props.backOneDay}/>
-      </article>
+      <section className='home-page'>
+        {this.state.thisWeekImages.length > 6 &&
+          <div>
+          <h1>ImagePage</h1>
+          <img className='large-image' alt={this.state.currentImage.explanation} src={this.state.currentImage.hdurl} onClick={this.displayNextDay}/>
+          </div>
+        }
+      </section>
     )
   }
-
-  // buttons shouldn't chage based off of state, only image
 }
+
+
 export default ImagePage

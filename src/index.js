@@ -6,7 +6,6 @@ import './index.scss';
 import * as serviceWorker from './serviceWorker';
 
 
-console.log(process.env)
 ReactDOM.render(
  <React.StrictMode>
    <BrowserRouter>

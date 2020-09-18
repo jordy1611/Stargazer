@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
 import './App.scss';
 import Landing from '../Landing/Landing'
-import HomePage from '../HomePage/HomePage'
+import ImagePage from '../ImagePage/ImagePage'
 import  { getImageByDate } from '../APICalls'
 import { getPreviousWeek }from '../helpers.js'
 
@@ -66,9 +66,11 @@ componentDidMount = async () => {
           render={() => {
             return(
               <div>
-              {(this.state.isLanding && this.state.thisWeekImages.length > 6) ?
-                <Landing /> :
-                <HomePage
+              {this.state.isLanding &&
+                <Landing />
+              }
+              {!this.state.isLanding && this.state.thisWeekImages.length > 6 &&
+                <ImagePage
                 thisWeekImages={this.state.thisWeekImages}
                 />
               }
