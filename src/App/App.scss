@@ -1,9 +1,17 @@
 @import '../styles/_variables.scss';
 @import '../styles/_mixins.scss';
 
-// .App {
-//   text-align: center;
-// }
+.App {
+  text-align: center;
+  height: 100vh;
+}
+
+.blockColorblindContent {
+  height: 0px;
+  width: 0px;
+  margin: 0;
+  padding: 0;
+}
 //
 // .App-logo {
 //   height: 40vmin;
