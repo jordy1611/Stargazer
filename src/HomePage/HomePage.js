@@ -10,32 +10,40 @@ class HomePage extends Component {
     this.state = {
       isLanding: false,
       currentImage: {},
-      dayCounter: 0,
-      thisWeekImages: this.props.thisWeekImages
+      day: 0,
+      thisWeekImages: []
     };
-    this.thisWeekImages = this.props.thisWeekImages
   }
 
   componentDidMount() {
-    console.log('before all', this.props.thisWeekImages)
-    console.log('all', this.state.thisWeekImages)
     // setTimeout(() => {this.setState({ isLanding: false })}, 4000)
-    // this.setState({ thisWeekImages: this.props.thisWeekImages });
-    const currentImage = this.thisWeekImages['0']
-    console.log('current',currentImage)
-    this.setState({ currentImage: currentImage })
-    console.log('2',this.state)
+    this.getImageOfDay()
+    this.setState({ thisWeekImages: this.props.thisWeekImages})
+    if(this.props.thisWeekImages.length > 0) {
+      console.log('success')
+    }
+    // this.setState({ currentImage: 'fucks' })
+
+  }
+
+  getImageOfDay() {
+    (this.props.thisWeekImages[0]) ? console.log('it exists') : console.log('it does not exist')
+  }
+
+  backOneDate = () => {
+    let num = this.state.day + 1;
+    this.setState( {day : num })
   }
 
   render() {
     return(
       <section className='home-page'>
-        {(this.state.isLanding &&
+        {this.state.isLanding &&
           <Landing/>
-        ) ||
-        <ImagePage
-          image={this.state.currentImage}
-        />
+        }
+        {!this.state.isLanding && this.state.thisWeekImages.length > 0 &&
+          <ImagePage
+          image={this.props.thisWeekImages[0]}/>
         }
       </section>
     )

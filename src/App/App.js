@@ -36,12 +36,14 @@ componentDidMount = async () => {
   for (let day of prevWeek) {
     try {
       const thisWeekImages = this.state.thisWeekImages
-      thisWeekImages.push( await getImageByDate(day))
-      this.setState({ thisWeekImages: thisWeekImages })
+      const dayImage = await getImageByDate(day)
+      thisWeekImages.push(dayImage)
+      this.setState({ thisWeekImages: thisWeekImages , imagesLoaded: thisWeekImages.length})
     } catch(error) {
       console.error(error)
     }
   }
+
   // for (let i = 0; i < 7; i++) {
   //   console.log(this.state.thisWeekDates[0])
   //   try {
@@ -57,38 +59,15 @@ componentDidMount = async () => {
   render() {
     return (
       <Router>
-      <Route
-      exact path = '/'
-      render={() => {
-        return (
-          <HomePage
-          thisWeekImages={this.state.thisWeekImages}
-          />
-        )
-      }}/>
         <main className="App">
-        {this.state.thisWeekImages[0] &&
-        <img src={this.state.thisWeekImages[0].hdurl}/>
-        }
-        {this.state.thisWeekImages[1] &&
-        <img src={this.state.thisWeekImages[1].hdurl}/>
-        }
-        {this.state.thisWeekImages[2] &&
-        <img src={this.state.thisWeekImages[2].hdurl}/>
-        }
-        {this.state.thisWeekImages[3] &&
-        <img src={this.state.thisWeekImages[3].hdurl}/>
-        }
-        {this.state.thisWeekImages[4] &&
-        <img src={this.state.thisWeekImages[4].hdurl}/>
-        }
-        {this.state.thisWeekImages[5] &&
-        <img src={this.state.thisWeekImages[5].hdurl}/>
-        }
-        {this.state.thisWeekImages[6] &&
-        <img src={this.state.thisWeekImages[6].hdurl}/>
-        }
-
+          <Route
+          exact path = '/'
+          render={() => {
+            return <HomePage
+            thisWeekImages={this.state.thisWeekImages}
+            imagesLoaded={this.state.imagesLoaded}
+            />
+          }}/>
         </main>
       </Router>
     );

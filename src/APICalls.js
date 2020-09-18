@@ -4,11 +4,3 @@ export const getImageByDate = async (date) => {
 
   return data
 }
-
-// function getImageByDate2(date) {
-//   fetch(`https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_KEY}&date=${date}`)
-//   .then((response) => {response.json()})
-//   .then((data) => {return data})
-// }
-//
-// export default getImageByDate2

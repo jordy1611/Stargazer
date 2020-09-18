@@ -7,7 +7,7 @@ class ImagePage extends Component {
     super(props);
     this.state = {
       date: '',
-      image: '',
+      title: '',
       info: '',
       hdurl: '',
       sdurl: '',
@@ -16,13 +16,21 @@ class ImagePage extends Component {
   }
 
   componentDidMount() {
-
+    this.setState({
+      date: this.props.image.date,
+      title: this.props.image.title,
+      info: this.props.image.explanation,
+      sdurl: this.props.image.sdurl,
+      hdurl: this.props.image.hdurl,
+      copyright: this.props.image.copyright || '',
+    })
   }
 
   render() {
     return(
       <article className='image-page'>
-        <h1>TEST</h1>
+        <h1>ImagePage</h1>
+        <img  className='large-image' src={this.state.hdurl}/>
       </article>
     )
   }
