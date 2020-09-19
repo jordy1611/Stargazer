@@ -11,7 +11,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      isLanding: false,
+      isLanding: true,
       todaysDate: 'no today',
       thisWeekDates: ['no week'],
       thisWeekImages: [],

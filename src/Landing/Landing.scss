@@ -12,7 +12,7 @@
 .landing > div {
   padding: 0;
   text-align: center;
-  margin: 16em 0 0 0;
+  margin: 27vh 0 0 0;
   grid-column: 1 / -1;
   grid-row: 2 / 3;
   z-index: 1;
@@ -22,14 +22,15 @@
   align-self: center;
   grid-column: 2 / 2;
   grid-row: 1 / 4;
-  width: 55em;
+  // width: 55em;
+  height: 100vh;
   z-index: 0;
   margin: 0;
 }
 
 .landing-title {
   color: $textColor;
-  font-size: 6em;
+  font-size: 14vh;
   margin: 0;
   z-index: 1;
   font-weight: 500;
@@ -37,7 +38,7 @@
 
 .landing-description {
   color: $textColor;
-  font-size: 3em;
+  font-size: 7vh;
   margin-top: 2em;
   // width: 18em;
   z-index: 1;
