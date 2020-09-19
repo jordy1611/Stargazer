@@ -18,7 +18,7 @@ class ImagePage extends Component {
 
   componentDidMount() {
     this.setState({ thisWeekImages: this.props.thisWeekImages})
-    this.setState({ currentImage: this.props.thisWeekImages[1]})
+    this.setState({ currentImage: this.props.thisWeekImages[0]})
     if(this.props.thisWeekImages.length > 6) {
     }
   }
