@@ -9,18 +9,19 @@
 *
 ### Files modified:
 - [] App
-- []
-- []
-- []
-- []
+- [] ImagePage
+- [] FavoritesPage
+- [] Favorite
+- [] Helpers
+- [] APICalls
 - [] Other files:
 ### How should this be manually tested?
 *
-### Any background context you want to provide?
-*
 ### What are the relevant tickets?
 * Resolves #
+### Any background context you want to provide?
+*
 ### Screenshots (if appropriate)
 *
 ### Questions:
-* 
+*
