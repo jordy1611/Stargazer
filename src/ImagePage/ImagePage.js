@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
 import './ImagePage.scss';
+import upArrow from '../assets/up-arrow.png'
+import downArrow from '../assets/down-arrow.png'
+import nasaLogo from '../assets/nasa.png'
 // import Landing from '../Landing/Landing'
 // import ImagePage from '../ImagePage/ImagePage'
 
@@ -15,7 +18,7 @@ class ImagePage extends Component {
 
   componentDidMount() {
     this.setState({ thisWeekImages: this.props.thisWeekImages})
-    this.setState({ currentImage: this.props.thisWeekImages[0]})
+    this.setState({ currentImage: this.props.thisWeekImages[1]})
     if(this.props.thisWeekImages.length > 6) {
     }
   }
@@ -42,15 +45,29 @@ class ImagePage extends Component {
   }
 
   render() {
-    return(
-      <section className='home-page'>
-        {this.props.thisWeekImages.length > 6 &&
-          <div>
-          <h1>ImagePage</h1>
-          <img className='large-image' alt={this.state.currentImage.explanation} src={this.state.currentImage.hdurl} />
-          </div>
-        }
-      </section>
+    return (
+      this.props.thisWeekImages.length > 6 ?
+          <article className='image-page'>
+
+              <div className='date-display'>
+                <nav className='up-arrow'></nav>
+                <p className='current-date'>{this.state.currentImage.date}</p>
+                <nav className='down-arrow'></nav>
+              </div>
+              <p className='info-prompt'>Info</p>
+
+              <div className='hidden-info'>
+                <p className='hidden-title'>{this.state.currentImage.title}</p>
+                <p className='hidden-explanation'>{this.state.currentImage.explanation}</p>
+                <p className='hidden-copyright'>{this.state.currentImage.copyright || ''}</p>
+              </div>
+              <img className='large-image' alt={this.state.currentImage.title} src={this.state.currentImage.hdurl} />
+
+              <p className='favorite-toggle'>Favorite</p>
+              <p className='my-favorites-link'>My Favorites</p>
+
+          </article>
+      : <img className='nasa-logo' src={nasaLogo} alt='nasa logo'/>
     )
   }
 }
