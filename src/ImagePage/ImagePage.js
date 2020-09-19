@@ -52,9 +52,13 @@ class ImagePage extends Component {
           <article className='image-page'>
 
               <div className='date-display'>
-                <nav className='up-arrow' onClick={this.displayPreviousDay}></nav>
+                { this.state.day > 0 &&
+                  <nav className='up-arrow' onClick={this.displayPreviousDay}></nav>
+                }
                 <p className='current-date'>{this.state.currentImage.date}</p>
-                <nav className='down-arrow' onClick={this.displayNextDay}></nav>
+                { this.state.day < 6 &&
+                  <nav className='down-arrow' onClick={this.displayNextDay}></nav>
+                }
               </div>
               <p className='info-prompt'>Info</p>
 
