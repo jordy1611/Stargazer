@@ -56,17 +56,17 @@ favoriteImage = (image) => {
           render={() => {
             return(
               <div>
-              {this.state.isLanding &&
-                <Landing />
-              }
-              {!this.state.isLanding && this.state.thisWeekImages.length > 6 &&
-                <ImagePage
-                thisWeekImages={this.state.thisWeekImages}
-                today={this.state.todaysDate}
-                favoriteImage={this.favoriteImage}
-                userFavorites={this.state.userFavorites}
-                />
-              }
+                {this.state.isLanding &&
+                  <Landing />
+                }
+                {!this.state.isLanding && this.state.thisWeekImages.length > 6 &&
+                  <ImagePage
+                  thisWeekImages={this.state.thisWeekImages}
+                  today={this.state.todaysDate}
+                  favoriteImage={this.favoriteImage}
+                  userFavorites={this.state.userFavorites}
+                  />
+                }
               </div>
             )
           }}
