@@ -116,7 +116,8 @@
   .my-favorites-navlink {
     grid-column: 3 / 3;
     grid-row: 2 / 2;
-    // @include sideText();
+    justify-self: center;
+    text-align: center;
     margin: 40vh 0 0 3vw;
   }
 
@@ -129,4 +130,5 @@
 }
 .my-favorites-text {
   @include sideText();
+  margin: 0;
 }
