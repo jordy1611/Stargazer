@@ -29,13 +29,6 @@ componentDidMount = async () => {
   const prevWeek = getPreviousWeek()
   const today = prevWeek[0]
   this.setState({ todaysDate: today, thisWeekDates: prevWeek })
-  // try {
-  //   let thisWeekImages = this.state.thisWeekImages
-  //   thisWeekImages.push( await getImageByDate(today))
-  //   this.setState({ thisWeekImages: thisWeekImages })
-  // } catch(error) {
-  //   console.error(error)
-  // }
 
   for (let day of prevWeek) {
     try {
@@ -47,18 +40,12 @@ componentDidMount = async () => {
       console.error(error)
     }
   }
+}
 
-  // for (let i = 0; i < 7; i++) {
-  //   console.log(this.state.thisWeekDates[0])
-  //   try {
-  //     const thisWeekImages = this.state.thisWeekImages
-  //     const imageToday = await getImageByDate(this.state.thisWeekDates[i])
-  //     thisWeekImages[i] = imageToday
-  //     await this.setState({ thisWeekImages: thisWeekImages })
-  //   } catch(error) {
-  //     console.error(error)
-  //   }
-  // }
+favoriteImage = (image) => {
+  let userFavorites = this.state.userFavorites
+  userFavorites.push(image)
+  this.setState({userFavorites: userFavorites })
 }
   render() {
     return (
@@ -76,6 +63,7 @@ componentDidMount = async () => {
                 <ImagePage
                 thisWeekImages={this.state.thisWeekImages}
                 today={this.state.todaysDate}
+                favoriteImage={this.favoriteImage}
                 />
               }
               </div>
@@ -86,7 +74,9 @@ componentDidMount = async () => {
           exact path = '/favorites'
           render={() => {
             return(
-              <FavoritesPage />
+              <FavoritesPage
+                userFavorites={this.state.userFavorites}
+              />
             )
           }}
           />

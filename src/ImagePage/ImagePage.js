@@ -69,7 +69,7 @@ class ImagePage extends Component {
               </div>
               <img className='large-image' alt={this.state.currentImage.title} src={this.state.currentImage.hdurl} />
 
-              <p className='favorite-toggle'>Favorite</p>
+              <p className='favorite-toggle' onClick={() => {this.props.favoriteImage(this.state.currentImage)}}>Favorite</p>
               <NavLink to='/favorites' className='my-favorites-navlink'><p className='my-favorites-text'>My Favorites</p></NavLink>
 
           </article>
