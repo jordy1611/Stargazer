@@ -47,6 +47,14 @@ favoriteImage = (image) => {
     userFavorites.push(image)
     this.setState({userFavorites: userFavorites })
 }
+
+unFavoriteImage = (image) => {
+  let userFavorites = this.state.userFavorites
+  const index = userFavorites.indexOf(image)
+  userFavorites.splice(index, 1)
+  this.setState({ userFavorites: userFavorites })
+}
+
   render() {
     return (
       <Router>
@@ -61,10 +69,11 @@ favoriteImage = (image) => {
                 }
                 {!this.state.isLanding && this.state.thisWeekImages.length > 6 &&
                   <ImagePage
-                  thisWeekImages={this.state.thisWeekImages}
-                  today={this.state.todaysDate}
-                  favoriteImage={this.favoriteImage}
-                  userFavorites={this.state.userFavorites}
+                    thisWeekImages={this.state.thisWeekImages}
+                    today={this.state.todaysDate}
+                    userFavorites={this.state.userFavorites}
+                    favoriteImage={this.favoriteImage}
+                    unFavoriteImage={this.unFavoriteImage}
                   />
                 }
               </div>
