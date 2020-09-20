@@ -25,7 +25,7 @@ class ImagePage extends Component {
   }
 
   favoriteImage() {
-    if (this.isFavorited() === 'not-favorite') {
+    if (this.isFavorited() === 'UnFavorite') {
     this.props.favoriteImage(this.state.currentImage);
    }
   }
@@ -50,9 +50,12 @@ class ImagePage extends Component {
 
   isFavorited() {
     const isFavorited = this.props.userFavorites.some(fav => fav.date === this.state.currentImage.date);
-    return isFavorited ? 'favorite' : 'not-favorite'
+    return isFavorited ? 'Favorite' : 'UnFavorite'
   }
 
+  favoriteText() {
+    return (this.isFavorited() === 'Favorite') ? 'Unfavorite' : 'Favorite'
+  }
   render() {
     return (
       this.props.thisWeekImages.length > 6 ?
@@ -76,7 +79,7 @@ class ImagePage extends Component {
               </div>
               <img className='large-image' alt={this.state.currentImage.title} src={this.state.currentImage.hdurl} />
 
-              <p className={`favorite-toggle ${this.isFavorited()}`} onClick={() => {this.favoriteImage(this.state.currentImage)}}>Favorite</p>
+              <p className={`favorite-toggle ${this.isFavorited()}`} onClick={() => {this.favoriteImage(this.state.currentImage)}}>{this.favoriteText()}</p>
               <NavLink to='/favorites' className='my-favorites-navlink'><p className='my-favorites-text'>My Favorites</p></NavLink>
 
           </article>
