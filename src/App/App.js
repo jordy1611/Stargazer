@@ -43,9 +43,9 @@ componentDidMount = async () => {
 }
 
 favoriteImage = (image) => {
-  let userFavorites = this.state.userFavorites
-  userFavorites.push(image)
-  this.setState({userFavorites: userFavorites })
+    let userFavorites = this.state.userFavorites
+    userFavorites.push(image)
+    this.setState({userFavorites: userFavorites })
 }
   render() {
     return (
@@ -64,6 +64,7 @@ favoriteImage = (image) => {
                 thisWeekImages={this.state.thisWeekImages}
                 today={this.state.todaysDate}
                 favoriteImage={this.favoriteImage}
+                userFavorites={this.state.userFavorites}
                 />
               }
               </div>
