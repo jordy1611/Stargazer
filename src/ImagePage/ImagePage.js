@@ -14,6 +14,7 @@ class ImagePage extends Component {
       currentImage: {},
       day: 0,
     };
+
   }
 
   componentDidMount() {
@@ -23,9 +24,12 @@ class ImagePage extends Component {
     }
   }
 
-  getImageOfDay() {
-    console.console.log('getImageOfDay');
-    // this.setState({currentImage: this.props.thisWeekImages[this.state.day]})
+  favoriteToggle() {
+    if (this.isFavorited('class') === 'unfavorited') {
+    this.props.favoriteImage(this.state.currentImage);
+  } else if (this.isFavorited('class') === 'favorited') {
+    this.props.unFavoriteImage(this.state.currentImage)
+  }
   }
 
   displayNextDay = () => {
@@ -43,6 +47,15 @@ class ImagePage extends Component {
       prevDay--
       const prevImage = this.props.thisWeekImages[prevDay]
       this.setState({ day: prevDay, currentImage: prevImage })
+    }
+  }
+
+  isFavorited(type) {
+    const isFavorited = this.props.userFavorites.some(fav => fav.date === this.state.currentImage.date);
+    if (type === 'class') {
+      return isFavorited ? 'favorited' : 'unfavorited'
+    } else if (type === 'text') {
+      return isFavorited ? 'UnFavorite' : 'Favorite'
     }
   }
 
@@ -69,7 +82,7 @@ class ImagePage extends Component {
               </div>
               <img className='large-image' alt={this.state.currentImage.title} src={this.state.currentImage.hdurl} />
 
-              <p className='favorite-toggle' onClick={() => {this.props.favoriteImage(this.state.currentImage)}}>Favorite</p>
+              <p className={`favorite-toggle ${this.isFavorited('class')}`} onClick={() => {this.favoriteToggle(this.state.currentImage)}}>{this.isFavorited('text')}</p>
               <NavLink to='/favorites' className='my-favorites-navlink'><p className='my-favorites-text'>My Favorites</p></NavLink>
 
           </article>
