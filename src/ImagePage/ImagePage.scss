@@ -113,7 +113,13 @@
 
   }
 
-
+  .my-favorites-navlink {
+    grid-column: 3 / 3;
+    grid-row: 2 / 2;
+    justify-self: center;
+    text-align: center;
+    margin: 40vh 0 0 3vw;
+  }
 
   .favorite-toggle {
     grid-column: 3 / 3;
@@ -121,11 +127,8 @@
     @include sideText();
     margin: 20.5vh 0 0 3vw;
   }
-  .my-favorites-link {
-    grid-column: 3 / 3;
-    grid-row: 2 / 2;
-    @include sideText();
-    margin: 40vh 0 0 3vw;
-  }
-
+}
+.my-favorites-text {
+  @include sideText();
+  margin: 0;
 }

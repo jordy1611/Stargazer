@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom
 import './App.scss';
 import Landing from '../Landing/Landing'
 import ImagePage from '../ImagePage/ImagePage'
+import FavoritesPage from '../FavoritesPage/FavoritesPage'
 import  { getImageByDate } from '../APICalls'
 import { getPreviousWeek }from '../helpers.js'
 
@@ -11,28 +12,23 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      isLanding: true,
+      isLanding: false,
       todaysDate: 'no today',
       thisWeekDates: ['no week'],
       thisWeekImages: [],
       imagesLoaded: 0,
       searchDate: '',
       searchImage: {},
+      userFavorites: [],
     }
   }
 
 componentDidMount = async () => {
+  console.log(this.state.userFavorites.length)
   setTimeout(() => {this.setState({ isLanding: false })}, 4000)
   const prevWeek = getPreviousWeek()
   const today = prevWeek[0]
   this.setState({ todaysDate: today, thisWeekDates: prevWeek })
-  // try {
-  //   let thisWeekImages = this.state.thisWeekImages
-  //   thisWeekImages.push( await getImageByDate(today))
-  //   this.setState({ thisWeekImages: thisWeekImages })
-  // } catch(error) {
-  //   console.error(error)
-  // }
 
   for (let day of prevWeek) {
     try {
@@ -44,18 +40,12 @@ componentDidMount = async () => {
       console.error(error)
     }
   }
+}
 
-  // for (let i = 0; i < 7; i++) {
-  //   console.log(this.state.thisWeekDates[0])
-  //   try {
-  //     const thisWeekImages = this.state.thisWeekImages
-  //     const imageToday = await getImageByDate(this.state.thisWeekDates[i])
-  //     thisWeekImages[i] = imageToday
-  //     await this.setState({ thisWeekImages: thisWeekImages })
-  //   } catch(error) {
-  //     console.error(error)
-  //   }
-  // }
+favoriteImage = (image) => {
+  let userFavorites = this.state.userFavorites
+  userFavorites.push(image)
+  this.setState({userFavorites: userFavorites })
 }
   render() {
     return (
@@ -73,11 +63,23 @@ componentDidMount = async () => {
                 <ImagePage
                 thisWeekImages={this.state.thisWeekImages}
                 today={this.state.todaysDate}
+                favoriteImage={this.favoriteImage}
                 />
               }
               </div>
-          )
-          }}/>
+            )
+          }}
+          />
+          <Route
+          exact path = '/favorites'
+          render={() => {
+            return(
+              <FavoritesPage
+                userFavorites={this.state.userFavorites}
+              />
+            )
+          }}
+          />
         </main>
       </Router>
     );
