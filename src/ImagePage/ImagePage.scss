@@ -25,6 +25,9 @@
       @include arrowStyle(-135deg)
       margin: 0;
     }
+    .up-arrow:hover {
+      color: $activeColor;
+    }
     .current-date {
       grid-row: 2 / 2;
       grid-column: 1 / 1;
@@ -39,6 +42,10 @@
       grid-column: 1 / 1;
       @include arrowStyle(45deg);
       margin: 0;
+    }
+
+    .down-arrow:hover {
+      color: $activeColor;
     }
   }
 //  additional feature to add
@@ -56,6 +63,10 @@
     @include sideText()
     margin: 40vh 3vw 0 0;
     z-index: 0;
+  }
+
+  .info-prompt:hover {
+    color: $activeColor;
   }
 
   .info-prompt:hover + .hidden-info {
@@ -100,8 +111,8 @@
       text-align: center;
       padding-bottom: .2em;
     }
-
   }
+
   .large-image {
     grid-row: 1 / 4;
     grid-column: 1 / 4;
@@ -121,12 +132,30 @@
     margin: 40vh 0 0 3vw;
   }
 
+  .my-favorites-text:hover {
+    color: $activeColor;
+  }
+
   .favorite-toggle {
     grid-column: 3 / 3;
     grid-row: 1 / 1;
     @include sideText();
     margin: 20.5vh 0 0 3vw;
   }
+
+  .unfavorited:hover {
+    color: $activeColor;
+    // transform: scale(1.2)
+  }
+
+  .favorited {
+    color: $activeColor;
+  }
+
+  .favorited:hover {
+    color: $textColor
+  }
+
 }
 .my-favorites-text {
   @include sideText();

@@ -25,9 +25,9 @@ class ImagePage extends Component {
   }
 
   favoriteToggle() {
-    if (this.isFavorited('class') === 'UnFavorite') {
+    if (this.isFavorited('class') === 'unfavorited') {
     this.props.favoriteImage(this.state.currentImage);
-  } else if (this.isFavorited('class') === 'Favorite') {
+  } else if (this.isFavorited('class') === 'favorited') {
     this.props.unFavoriteImage(this.state.currentImage)
   }
   }
@@ -53,7 +53,7 @@ class ImagePage extends Component {
   isFavorited(type) {
     const isFavorited = this.props.userFavorites.some(fav => fav.date === this.state.currentImage.date);
     if (type === 'class') {
-      return isFavorited ? 'Favorite' : 'UnFavorite'
+      return isFavorited ? 'favorited' : 'unfavorited'
     } else if (type === 'text') {
       return isFavorited ? 'UnFavorite' : 'Favorite'
     }
