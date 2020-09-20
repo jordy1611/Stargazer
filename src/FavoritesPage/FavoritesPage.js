@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import 'FavoritesPage.scss'
+import './FavoritesPage.scss'
 import Favorite from '../Favorite/Favorite'
 
-class FavoritePage extends Component {
-  contructor(props) {
+class FavoritesPage extends Component {
+  constructor(props) {
     super(props);
     this.state = {
       userFavorites: []
@@ -23,3 +23,5 @@ class FavoritePage extends Component {
     )
   }
 }
+
+export default FavoritesPage

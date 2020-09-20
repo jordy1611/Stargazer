@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom
 import './App.scss';
 import Landing from '../Landing/Landing'
 import ImagePage from '../ImagePage/ImagePage'
+import FavoritesPage from '../FavoritesPage/FavoritesPage'
 import  { getImageByDate } from '../APICalls'
 import { getPreviousWeek }from '../helpers.js'
 
@@ -11,17 +12,19 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      isLanding: true,
+      isLanding: false,
       todaysDate: 'no today',
       thisWeekDates: ['no week'],
       thisWeekImages: [],
       imagesLoaded: 0,
       searchDate: '',
       searchImage: {},
+      userFavorites: [],
     }
   }
 
 componentDidMount = async () => {
+  console.log(this.state.userFavorites.length)
   setTimeout(() => {this.setState({ isLanding: false })}, 4000)
   const prevWeek = getPreviousWeek()
   const today = prevWeek[0]
@@ -76,8 +79,17 @@ componentDidMount = async () => {
                 />
               }
               </div>
-          )
-          }}/>
+            )
+          }}
+          />
+          <Route
+          exact path = '/favorites'
+          render={() => {
+            return(
+              <FavoritesPage />
+            )
+          }}
+          />
         </main>
       </Router>
     );

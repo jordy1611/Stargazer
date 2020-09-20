@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, NavLink, Link } from 'react-router-dom';
 import './ImagePage.scss';
 import upArrow from '../assets/up-arrow.png'
 import downArrow from '../assets/down-arrow.png'
@@ -70,7 +70,7 @@ class ImagePage extends Component {
               <img className='large-image' alt={this.state.currentImage.title} src={this.state.currentImage.hdurl} />
 
               <p className='favorite-toggle'>Favorite</p>
-              <p className='my-favorites-link'>My Favorites</p>
+              <NavLink to='/favorites' className='my-favorites-navlink'><p className='my-favorites-text'>My Favorites</p></NavLink>
 
           </article>
       : <img className='nasa-logo' src={nasaLogo} alt='nasa logo'/>
