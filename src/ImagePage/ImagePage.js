@@ -25,7 +25,7 @@ class ImagePage extends Component {
   }
 
   favoriteImage() {
-    if (this.isFavorited() === 'UnFavorite') {
+    if (this.isFavorited('class') === 'UnFavorite') {
     this.props.favoriteImage(this.state.currentImage);
    }
   }
@@ -48,14 +48,18 @@ class ImagePage extends Component {
     }
   }
 
-  isFavorited() {
+  isFavorited(type) {
+    // take input, if input === classname then do what's there
+    // if input === text the do opposite
+
     const isFavorited = this.props.userFavorites.some(fav => fav.date === this.state.currentImage.date);
-    return isFavorited ? 'Favorite' : 'UnFavorite'
+    if (type === 'class') {
+      return isFavorited ? 'Favorite' : 'UnFavorite'
+    } else if (type === 'text') {
+      return isFavorited ? 'UnFavorite' : 'Favorite'
+    }
   }
 
-  favoriteText() {
-    return (this.isFavorited() === 'Favorite') ? 'Unfavorite' : 'Favorite'
-  }
   render() {
     return (
       this.props.thisWeekImages.length > 6 ?
@@ -79,7 +83,7 @@ class ImagePage extends Component {
               </div>
               <img className='large-image' alt={this.state.currentImage.title} src={this.state.currentImage.hdurl} />
 
-              <p className={`favorite-toggle ${this.isFavorited()}`} onClick={() => {this.favoriteImage(this.state.currentImage)}}>{this.favoriteText()}</p>
+              <p className={`favorite-toggle ${this.isFavorited('class')}`} onClick={() => {this.favoriteImage(this.state.currentImage)}}>{this.isFavorited('text')}</p>
               <NavLink to='/favorites' className='my-favorites-navlink'><p className='my-favorites-text'>My Favorites</p></NavLink>
 
           </article>
