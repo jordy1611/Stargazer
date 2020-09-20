@@ -18,7 +18,7 @@ class ImagePage extends Component {
 
   componentDidMount() {
     this.setState({ thisWeekImages: this.props.thisWeekImages})
-    this.setState({ currentImage: this.props.thisWeekImages[1]})
+    this.setState({ currentImage: this.props.thisWeekImages[0]})
     if(this.props.thisWeekImages.length > 6) {
     }
   }
@@ -30,17 +30,19 @@ class ImagePage extends Component {
 
   displayNextDay = () => {
     if (this.state.day < 6) {
-      const nextDay = this.state.day + 1
+      let nextDay = this.state.day
+      nextDay++
       const nextImage = this.props.thisWeekImages[nextDay]
-      this.setState({ currentImage: nextImage })
+      this.setState({ day: nextDay, currentImage: nextImage })
     }
   }
 
   displayPreviousDay = () => {
     if (this.state.day > 0) {
-      const prevDay = this.state.day - 1
+      let prevDay = this.state.day
+      prevDay--
       const prevImage = this.props.thisWeekImages[prevDay]
-      this.setState({ currentImage: prevImage })
+      this.setState({ day: prevDay, currentImage: prevImage })
     }
   }
 
@@ -50,9 +52,13 @@ class ImagePage extends Component {
           <article className='image-page'>
 
               <div className='date-display'>
-                <nav className='up-arrow'></nav>
+                { this.state.day > 0 &&
+                  <nav className='up-arrow' onClick={this.displayPreviousDay}></nav>
+                }
                 <p className='current-date'>{this.state.currentImage.date}</p>
-                <nav className='down-arrow'></nav>
+                { this.state.day < 6 &&
+                  <nav className='down-arrow' onClick={this.displayNextDay}></nav>
+                }
               </div>
               <p className='info-prompt'>Info</p>
 
