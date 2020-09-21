@@ -1,11 +1,13 @@
-import React from 'react'
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
-import App from './App'
-import '@testing-library/jest-dom'
-import { MemoryRouter } from 'react-router-dom'
-import { sampleDay, sampleWeek } from '../testData'
-import { getImageByDate, getAllImages } from '../APICalls.js'
-jest.mock('../APICalls')
+import React from 'react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import App from './App';
+import '@testing-library/jest-dom';
+import { MemoryRouter } from 'react-router-dom';
+import { sampleDay, sampleWeek } from '../testData';
+import { getImageByDate, getAllImages } from '../APICalls.js';
+jest.mock('../APICalls');
+import MutationObserver from '@sheerun/mutationobserver-shim';
+window.MutationObserver = MutationObserver;
 
 describe('App Snapshots', () => {
   it('should render a landing page on initialization', () => {
