@@ -3,7 +3,7 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import App from './App'
 import '@testing-library/jest-dom'
 import { MemoryRouter } from 'react-router-dom'
-import { sampleDay } from '../testData'
+import { sampleDay, sampleWeek } from '../testData'
 import { getImageByDate, getAllImages } from '../APICalls.js'
 jest.mock('../APICalls')
 
@@ -20,18 +20,16 @@ describe('App Snapshots', () => {
     expect(landingImage).toBeInTheDocument()
   })
 
-  it('should render the image of the data after 4 seconds', () => {
-    getAllImages.mockResolvedValueOnce(sampleDay)
-    jest.useFakeTimers();
+  it('should render the image of the data after 4 seconds', async() => {
+    getAllImages.mockResolvedValue(sampleWeek)
+
     render(
       <MemoryRouter>
         <App />
       </MemoryRouter>
     )
-    jest.runAllTimers();
 
-    const todayImage = screen.getByAltText('butt')
+    const todayImage = await waitFor(() => screen.getByAltText('test'))
 
-    // const image = screen.getByAltText('butt')
   })
 });
