@@ -4,3 +4,12 @@ export const getImageByDate = async (date) => {
 
   return data
 }
+
+export const getAllImages = async (prevWeek) => {
+  let thisWeekImages = []
+  for (let day of prevWeek) {
+      let dayImage = await getImageByDate(day)
+      thisWeekImages.push(dayImage)
+  }
+  return thisWeekImages
+}

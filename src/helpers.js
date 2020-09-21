@@ -1,3 +1,5 @@
+import  { getImageByDate } from './APICalls'
+
 export const getPreviousWeek = () => {
   const date = new Date()
   // const today = date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()
@@ -11,3 +13,11 @@ export const getPreviousWeek = () => {
 }
 
 // do set timeout
+export const getAllImages = async (prevWeek) => {
+  for (let day of prevWeek) {
+      const thisWeekImages = []
+      const dayImage = await getImageByDate(day)
+      thisWeekImages.push(dayImage)
+      return thisWeekImages
+  }
+}

@@ -4,8 +4,8 @@ import './App.scss';
 import Landing from '../Landing/Landing'
 import ImagePage from '../ImagePage/ImagePage'
 import FavoritesPage from '../FavoritesPage/FavoritesPage'
-import  { getImageByDate } from '../APICalls'
-import { getPreviousWeek }from '../helpers.js'
+import  { getImageByDate, getAllImages } from '../APICalls'
+import { getPreviousWeek } from '../helpers.js'
 import PropTypes from 'prop-types';
 
 
@@ -29,16 +29,11 @@ componentDidMount = async () => {
   const prevWeek = getPreviousWeek()
   const today = prevWeek[0]
   this.setState({ todaysDate: today, thisWeekDates: prevWeek })
-
-  for (let day of prevWeek) {
-    try {
-      const thisWeekImages = this.state.thisWeekImages
-      const dayImage = await getImageByDate(day)
-      thisWeekImages.push(dayImage)
-      this.setState({ thisWeekImages: thisWeekImages , imagesLoaded: thisWeekImages.length})
-    } catch(error) {
-      console.error(error)
-    }
+  try {
+    const thisWeekImages = await getAllImages(prevWeek)
+    console.log(thisWeekImages)
+    this.setState({ thisWeekImages: thisWeekImages , imagesLoaded: thisWeekImages.length})
+  } catch(error) {
   }
 }
 

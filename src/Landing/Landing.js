@@ -18,11 +18,11 @@ class Landing extends Component {
   render() {
     return(
       <article className='landing'>
-      <img className='landing-image' src={landingImage} alt='image of Jupiter' />
+      <img className='landing-image' src={landingImage} alt='Image of Jupiter' />
       { this.state.displayTitle &&
         <div>
         <h1 className='landing-title'>STARGAZER</h1>
-        <p className='landing-description'>Experience The Universe</p>
+        <p className='landing-description'>Experience Our Universe</p>
         </div>
       }
       </article>
