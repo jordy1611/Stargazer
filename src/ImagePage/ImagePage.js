@@ -78,7 +78,9 @@ class ImagePage extends Component {
               <div className='hidden-info'>
                 <p className='hidden-title'>{this.state.currentImage.title}</p>
                 <p className='hidden-explanation'>{this.state.currentImage.explanation}</p>
-                <p className='hidden-copyright'>{this.state.currentImage.copyright || ''}</p>
+                { this.state.currentImage.copyright &&
+                  <p className='hidden-copyright'>{this.state.currentImage.copyright}</p>
+                }
               </div>
               <img className='large-image' alt={this.state.currentImage.title} src={this.state.currentImage.hdurl} />
 

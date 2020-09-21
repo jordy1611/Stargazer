@@ -24,8 +24,8 @@ class App extends Component {
   }
 
 componentDidMount = async () => {
-  console.log(this.state.userFavorites.length)
-  setTimeout(() => {this.setState({ isLanding: false })}, 4000)
+  // console.log(this.state.userFavorites.length)
+  // setTimeout(() => {this.setState({ isLanding: false })}, 3500)
   const prevWeek = getPreviousWeek()
   const today = prevWeek[0]
   this.setState({ todaysDate: today, thisWeekDates: prevWeek })
