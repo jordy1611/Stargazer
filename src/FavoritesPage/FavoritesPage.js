@@ -29,6 +29,7 @@ class FavoritesPage extends Component {
     return(
       <section className='favorites-page'>
         <h2 className='favorites-title'>My Favorites</h2>
+        <p className='favorites-instructions'>Hover Over Image To See Info</p>
         <Link to='/'><nav className='home-toggle'>Home</nav></Link>
         <section className='favorites-container'>
           {this.renderFavorites()}
