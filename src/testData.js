@@ -9,7 +9,7 @@ export const sampleDay = {
   url: "https://apod.nasa.gov/apod/image/2009/OmegaSunSail_Sendra_960.jpg"
 }
 
-export const sampleWeek =[
+export const sampleWeek = [
   {
     copyright: "Juan Antonio Sendra",
     date: "2020-09-21",

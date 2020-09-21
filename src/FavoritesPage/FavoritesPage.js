@@ -34,7 +34,6 @@ class FavoritesPage extends Component {
   }
 
   componentDidMount() {
-    console.log('FAVORITES')
   }
 
   render() {
