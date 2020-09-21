@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './FavoritesPage.scss'
 import Favorite from '../Favorite/Favorite'
 
@@ -10,15 +11,22 @@ class FavoritesPage extends Component {
     }
   }
 
+  renderFavorites() {
+    return this.props.userFavorites.map(favorite => {
+      return <Favorite />
+    })
+  }
+
   componentDidMount() {
     console.log('FAVORITES')
   }
+
   render() {
     return(
       <section className='favorites-page'>
-        <Favorite/>
-        <Favorite/>
-        <Favorite/>
+        <h2 className='favorites-title'>My Favorites</h2>
+        <Link to='/'><nav className='home-toggle'>Home</nav></Link>
+        {this.renderFavorites()}
       </section>
     )
   }

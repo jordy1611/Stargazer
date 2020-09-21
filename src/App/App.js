@@ -12,7 +12,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      isLanding: true,
+      isLanding: false,
       todaysDate: 'no today',
       thisWeekDates: ['no week'],
       thisWeekImages: [],
@@ -24,8 +24,8 @@ class App extends Component {
   }
 
 componentDidMount = async () => {
-  console.log(this.state.userFavorites.length)
-  setTimeout(() => {this.setState({ isLanding: false })}, 3500)
+  // console.log(this.state.userFavorites.length)
+  // setTimeout(() => {this.setState({ isLanding: false })}, 3500)
   const prevWeek = getPreviousWeek()
   const today = prevWeek[0]
   this.setState({ todaysDate: today, thisWeekDates: prevWeek })
