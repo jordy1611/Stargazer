@@ -30,7 +30,9 @@ class FavoritesPage extends Component {
       <section className='favorites-page'>
         <h2 className='favorites-title'>My Favorites</h2>
         <Link to='/'><nav className='home-toggle'>Home</nav></Link>
-        {this.renderFavorites()}
+        <section className='favorites-container'>
+          {this.renderFavorites()}
+        </section>
       </section>
     )
   }

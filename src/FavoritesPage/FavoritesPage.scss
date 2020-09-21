@@ -1,0 +1,33 @@
+@import '../styles/_variables.scss';
+@import '../styles/_mixins.scss';
+
+.favorites-page {
+  padding: 3vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  background-color: black;
+}
+
+.favorites-title {
+  font-size: 5vh;
+  margin: 0;
+  margin: 0 0 2vh 0;
+}
+
+.home-toggle {
+  @include sideText();
+}
+
+.home-toggle:hover {
+  color: $activeColor;
+}
+
+.favorite-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+}
