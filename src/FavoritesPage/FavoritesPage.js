@@ -23,9 +23,10 @@ class FavoritesPage extends Component {
       }
     });
 
-    return this.props.userFavorites.map(favorite => {
+    return this.props.userFavorites.map((favorite, i) => {
       return (
         <Favorite
+          key={i}
           favorite={favorite}
         />
       )
