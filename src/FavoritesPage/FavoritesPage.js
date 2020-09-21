@@ -13,7 +13,11 @@ class FavoritesPage extends Component {
 
   renderFavorites() {
     return this.props.userFavorites.map(favorite => {
-      return <Favorite />
+      return (
+        <Favorite
+          favorite={favorite}
+        />
+      )
     })
   }
 
