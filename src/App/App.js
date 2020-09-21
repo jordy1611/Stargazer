@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Link, Switch } from 'react-router-dom';
 import './App.scss';
 import Landing from '../Landing/Landing'
 import ImagePage from '../ImagePage/ImagePage'
 import FavoritesPage from '../FavoritesPage/FavoritesPage'
 import  { getImageByDate } from '../APICalls'
 import { getPreviousWeek }from '../helpers.js'
+import PropTypes from 'prop-types';
 
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      isLanding: false,
+      isLanding: true,
       todaysDate: 'no today',
       thisWeekDates: ['no week'],
       thisWeekImages: [],
@@ -24,8 +25,7 @@ class App extends Component {
   }
 
 componentDidMount = async () => {
-  // console.log(this.state.userFavorites.length)
-  // setTimeout(() => {this.setState({ isLanding: false })}, 3500)
+  setTimeout(() => {this.setState({ isLanding: false })}, 3500)
   const prevWeek = getPreviousWeek()
   const today = prevWeek[0]
   this.setState({ todaysDate: today, thisWeekDates: prevWeek })
@@ -55,41 +55,50 @@ unFavoriteImage = (image) => {
   this.setState({ userFavorites: userFavorites })
 }
 
+filterRoutes(route) {
+  console.log(route)
+}
+
   render() {
     return (
       <Router>
         <main className="App">
-          <Route
-          exact path = '/'
-          render={() => {
-            return(
-              <div>
-                {this.state.isLanding &&
-                  <Landing />
-                }
-                {!this.state.isLanding && this.state.thisWeekImages.length > 6 &&
-                  <ImagePage
-                    thisWeekImages={this.state.thisWeekImages}
-                    today={this.state.todaysDate}
-                    userFavorites={this.state.userFavorites}
-                    favoriteImage={this.favoriteImage}
-                    unFavoriteImage={this.unFavoriteImage}
-                  />
-                }
-              </div>
-            )
-          }}
-          />
-          <Route
-          exact path = '/favorites'
-          render={() => {
-            return(
-              <FavoritesPage
-                userFavorites={this.state.userFavorites}
-              />
-            )
-          }}
-          />
+          <Switch>
+            <Route
+            exact path= '/'
+            render={() => {
+              return(
+                <div>
+                  {this.state.isLanding &&
+                    <Landing />
+                  }
+                  {!this.state.isLanding && this.state.thisWeekImages.length > 6 &&
+                    <ImagePage
+                      thisWeekImages={this.state.thisWeekImages}
+                      today={this.state.todaysDate}
+                      userFavorites={this.state.userFavorites}
+                      favoriteImage={this.favoriteImage}
+                      unFavoriteImage={this.unFavoriteImage}
+                    />
+                  }
+                </div>
+              )
+            }}
+            />
+            <Route
+            exact path = '/favorites'
+            render={() => {
+              return(
+                <FavoritesPage
+                  userFavorites={this.state.userFavorites}
+                />
+              )
+            }}
+            />
+            <Route>
+              <Redirect to=''/>
+            </Route>
+          </Switch>
         </main>
       </Router>
     );

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './FavoritesPage.scss'
 import Favorite from '../Favorite/Favorite'
+import PropTypes from 'prop-types'
 
 class FavoritesPage extends Component {
   constructor(props) {
@@ -22,9 +23,10 @@ class FavoritesPage extends Component {
       }
     });
 
-    return this.props.userFavorites.map(favorite => {
+    return this.props.userFavorites.map((favorite, i) => {
       return (
         <Favorite
+          key={i}
           favorite={favorite}
         />
       )
@@ -47,6 +49,10 @@ class FavoritesPage extends Component {
       </section>
     )
   }
+}
+
+FavoritesPage.propTypes = {
+  userFavorites: PropTypes.array
 }
 
 export default FavoritesPage

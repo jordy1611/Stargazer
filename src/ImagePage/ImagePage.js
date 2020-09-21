@@ -4,8 +4,7 @@ import './ImagePage.scss';
 import upArrow from '../assets/up-arrow.png'
 import downArrow from '../assets/down-arrow.png'
 import nasaLogo from '../assets/nasa.png'
-// import Landing from '../Landing/Landing'
-// import ImagePage from '../ImagePage/ImagePage'
+import PropTypes from 'prop-types';
 
 class ImagePage extends Component {
   constructor(props) {
@@ -93,5 +92,12 @@ class ImagePage extends Component {
   }
 }
 
+ImagePage.propTypes = {
+  thisWeekImages: PropTypes.array,
+  today: PropTypes.string,
+  userFavorites: PropTypes.array,
+  favoriteImage: PropTypes.func,
+  unFavoriteImag: PropTypes.func,
+}
 
 export default ImagePage

@@ -1,6 +1,7 @@
 import React from 'react'
 import './Favorite.scss'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 const Favorite = (props) => {
 
@@ -21,6 +22,10 @@ const Favorite = (props) => {
       </div>
     </article>
   )
+}
+
+Favorite.propTypes = {
+  favorite: PropTypes.object,
 }
 
 export default Favorite
