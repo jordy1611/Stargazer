@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import './App.scss';
 import Landing from '../Landing/Landing'
 import ImagePage from '../ImagePage/ImagePage'
 import FavoritesPage from '../FavoritesPage/FavoritesPage'
-import  { getImageByDate, getAllImages } from '../APICalls'
+import  { getAllImages } from '../APICalls'
 import { getPreviousWeek } from '../helpers.js'
-import PropTypes from 'prop-types';
 
 
 class App extends Component {

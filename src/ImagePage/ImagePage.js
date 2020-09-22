@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect, NavLink, Link } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
 import './ImagePage.scss';
-import upArrow from '../assets/up-arrow.png'
-import downArrow from '../assets/down-arrow.png'
 import nasaLogo from '../assets/nasa.png'
 import PropTypes from 'prop-types';
 

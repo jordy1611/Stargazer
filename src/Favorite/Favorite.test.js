@@ -17,7 +17,7 @@ describe('Favorite render', () => {
 
     const favTitle = screen.getByText('Day1')
     const favDate = screen.getByText('2020-09-21')
-    const favImage = screen.getByAltText('Day1 image')
+    const favImage = screen.getByAltText('Day1')
     const favExplanation = screen.getByText('This is day1 of sampleWeek')
     const favHDUrl = screen.getByText('hdurl: https://apod.nasa.gov/apod/image/2009/OmegaSunSail_Sendra_8504.jpg')
     const favSDUrl = screen.getByText('sdurl: https://apod.nasa.gov/apod/image/2009/OmegaSunSail_Sendra_960.jpg')

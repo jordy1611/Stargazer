@@ -14,7 +14,7 @@ describe('Landing render', () => {
     )
 
     const landingTitle = screen.getByText('STARGAZER')
-    const landingImage = screen.getByAltText('Image of Jupiter')
+    const landingImage = screen.getByAltText('Jupiter')
     const landingDescription = screen.getByText('Experience The Universe')
 
     expect(landingTitle).toBeInTheDocument()
@@ -31,7 +31,7 @@ describe('Landing render', () => {
     )
     jest.runAllTimers()
 
-  const landingImage = screen.getByAltText('Image of Jupiter')
+  const landingImage = screen.getByAltText('Jupiter')
     const landingTitle = screen.queryByText('STARGAZER')
     const landingDescription = screen.queryByText('Experience The Universe')
 

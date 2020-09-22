@@ -18,7 +18,7 @@ describe('App render', () => {
       </MemoryRouter>
     )
 
-    const landingImage = screen.getByAltText('Image of Jupiter')
+    const landingImage = screen.getByAltText('Jupiter')
 
     expect(landingImage).toBeInTheDocument()
   })
@@ -146,7 +146,7 @@ describe('App favoriting functionality', () => {
 
     fireEvent.click(favoritesButton)
 
-    const image1 = await waitFor(() => screen.getByAltText('Day1 image'))
+    const image1 = await waitFor(() => screen.getByAltText('Day1'))
     expect(image1).toBeInTheDocument()
   })
 })
