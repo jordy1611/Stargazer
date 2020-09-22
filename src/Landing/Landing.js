@@ -22,7 +22,7 @@ class Landing extends Component {
       { this.state.displayTitle &&
         <div>
         <h1 className='landing-title'>STARGAZER</h1>
-        <p className='landing-description'>Experience Our Universe</p>
+        <p className='landing-description'>Experience The Universe</p>
         </div>
       }
       </article>
