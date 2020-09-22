@@ -1,69 +1,31 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Stargazer
 
-## Available Scripts
+## About The Project
+NASA's Astronomy Pictures of The Day (APOD) are some of the intriguing and beautiful images out there. Stargazer utilizes the NASA APOD api to view high resolution images of this week in space. 
 
-In the project directory, you can run:
+Stargazer an application which fetches the previous week's NASA APODS and allows users to view those images, their information and favorite those images. The user is greeting with a landing page which then transitions to the main navigation page. The user is greeted with the current NASA APOD once landing on the main navigation page. From there the user can navigate through the previous weeks' phots, favoriting images on their way through. Users can visit a favorites page to view all of their favorite images along with url's of each image.
 
-### `npm start`
+Stargazer is a React application built myself in 6 days.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Author
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+**Jordan Shryock**
+ * [GitHub](https://github.com/jordy1611)
+ * [LinkedIn](https://www.linkedin.com/in/jordan-shryock-6a48b9113/)
+ 
+## Technologies and Tools Used
+- React
+- React Router
+- SASS
+- Jest
+- React Testing Library
+- GitHub Projects
 
-### `npm test`
+## Installation Instructions
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Clone down this repo
+- Run `npm install` from the root directory
+- Run `npm start` and visit localhost:3000 in your browser
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
-Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+## Credits
+Icons made by [Pixel Perfect](https://www.flaticon.com/authors/pixel-perfect) via [Flaticon](www.flaticon.com)
