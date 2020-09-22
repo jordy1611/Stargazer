@@ -13,11 +13,3 @@ export const getPreviousWeek = () => {
 }
 
 // do set timeout
-export const getAllImages = async (prevWeek) => {
-  for (let day of prevWeek) {
-      const thisWeekImages = []
-      const dayImage = await getImageByDate(day)
-      thisWeekImages.push(dayImage)
-      return thisWeekImages
-  }
-}

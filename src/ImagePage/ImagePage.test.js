@@ -4,8 +4,6 @@ import ImagePage from './ImagePage';
 import '@testing-library/jest-dom';
 import { MemoryRouter, Router } from 'react-router-dom';
 import { sampleWeek, sampleUserFavorites } from '../testData';
-import MutationObserver from '@sheerun/mutationobserver-shim';
-window.MutationObserver = MutationObserver;
 
 describe('ImagePage render', () => {
 
