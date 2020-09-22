@@ -33,9 +33,6 @@ class FavoritesPage extends Component {
     })
   }
 
-  componentDidMount() {
-  }
-
   render() {
     return(
       <section className='favorites-page'>
