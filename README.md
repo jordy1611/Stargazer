@@ -27,5 +27,22 @@ Stargazer is a React application built myself in 6 days.
 - Run `npm install` from the root directory
 - Run `npm start` and visit localhost:3000 in your browser
 
+## APP Demo
+
+* User is greeted with a landing page on initial load
+![page landing](./src/assets/Landing.gif)
+
+* User can navigate through this week's NASA APOD photos
+![page navigation](./src/assets/pageNav.gif)
+
+* User can view info on each image
+![view hidden info](./src/assets/hiddenInfoDisplay.gif)
+
+* User can favorite photos
+![photo favoriting](./src/assets/favoriting.gif)
+
+
+
+
 ## Credits
 Icons made by [Pixel Perfect](https://www.flaticon.com/authors/pixel-perfect) via [Flaticon](www.flaticon.com)
