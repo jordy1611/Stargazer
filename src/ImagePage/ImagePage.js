@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect, NavLink, Link } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
 import './ImagePage.scss';
-import upArrow from '../assets/up-arrow.png'
-import downArrow from '../assets/down-arrow.png'
 import nasaLogo from '../assets/nasa.png'
 import PropTypes from 'prop-types';
 
@@ -65,11 +63,11 @@ class ImagePage extends Component {
 
               <div className='date-display'>
                 { this.state.day > 0 &&
-                  <nav className='up-arrow' onClick={this.displayPreviousDay}></nav>
+                  <div className='up-arrow' onClick={this.displayPreviousDay} data-testid="up-arrow"></div>
                 }
                 <p className='current-date'>{this.state.currentImage.date}</p>
                 { this.state.day < 6 &&
-                  <nav className='down-arrow' onClick={this.displayNextDay}></nav>
+                  <div className='down-arrow' onClick={this.displayNextDay} data-testid="down-arrow"></div>
                 }
               </div>
               <p className='info-prompt'>Info</p>

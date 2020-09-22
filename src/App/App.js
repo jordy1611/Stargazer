@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Redirect, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import './App.scss';
 import Landing from '../Landing/Landing'
 import ImagePage from '../ImagePage/ImagePage'
 import FavoritesPage from '../FavoritesPage/FavoritesPage'
-import  { getImageByDate } from '../APICalls'
-import { getPreviousWeek }from '../helpers.js'
-import PropTypes from 'prop-types';
+import  { getAllImages } from '../APICalls'
+import { getPreviousWeek } from '../helpers.js'
 
 
 class App extends Component {
@@ -29,16 +28,10 @@ componentDidMount = async () => {
   const prevWeek = getPreviousWeek()
   const today = prevWeek[0]
   this.setState({ todaysDate: today, thisWeekDates: prevWeek })
-
-  for (let day of prevWeek) {
-    try {
-      const thisWeekImages = this.state.thisWeekImages
-      const dayImage = await getImageByDate(day)
-      thisWeekImages.push(dayImage)
-      this.setState({ thisWeekImages: thisWeekImages , imagesLoaded: thisWeekImages.length})
-    } catch(error) {
-      console.error(error)
-    }
+  try {
+    const thisWeekImages = await getAllImages(prevWeek)
+    this.setState({ thisWeekImages: thisWeekImages , imagesLoaded: thisWeekImages.length})
+  } catch(error) {
   }
 }
 
