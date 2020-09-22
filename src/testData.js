@@ -75,3 +75,5 @@ export const sampleWeek = [
     url: "https://apod.nasa.gov/apod/image/2009/OmegaSunSail_Sendra_960.jpg"
   }
 ]
+
+export const emptySampleWeek = [ {}, {}, {}, {}, {}, {}, {} ]
