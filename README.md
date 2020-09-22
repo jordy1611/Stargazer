@@ -38,11 +38,14 @@ Stargazer is a React application built myself in 6 days.
 * User can view info on each image
 ![view hidden info](./src/assets/hiddenInfoDisplay.gif)
 
-* User can favorite photos
+* User can favorite photos and view them on the favorites page
 ![photo favoriting](./src/assets/favoriting.gif)
 
+* User can view their favorited images
+![favorite display](./src/assets/favoritesDisplay.png)
 
-
+* User can view their favorited images's explanations and url's
+![favorite hidden display](./src/assets/favoriteHidden.png)
 
 ## Credits
 Icons made by [Pixel Perfect](https://www.flaticon.com/authors/pixel-perfect) via [Flaticon](www.flaticon.com)
