@@ -44,4 +44,4 @@
     "@testing-library/react": "^11.0.4",
     "jest-environment-jsdom-sixteen": "^1.0.3"
   }
-};
+}
