@@ -1,5 +1,8 @@
 language: node_js
 node_js:
-  - "node"
+- node
 notifications:
   email: false
+deploy:
+  api_key:
+    secure: PIVMDHgGtaKOBlhN/Btr49OgnGJbm0/QyBqPsT1uwvpizYiwwAaWaF23t31Fg4wW5w47uP+qhW1Ew9iZP+jCSvvNGf1FPEZeobCoygFdS8UU3QKtTF8SrIgK3LDJA+HsZU1P2uEPJAr5LxY74JK2IkcTBt5pr44Y6yK8n9KMDLYecvAtKDfH2nvB1MLx2ASlyb4WLjPVSt8IQlophnUDHU5U5zLf00jgzFBjJ2nhgBF6xC159edFGI+iiIGOCl+2WGZWlhSmDk+YZpH7IJge32HgN1qAUuFdet/4O3S1IELux+U/3nvl/+CWhkrc++mTw3LKjShhy0O4INNSCwLWZZ66awKW/wlv2x+5vE/SZ052cVgEpEXRSaIUu2mYY32pxbRpqrC5IlUT3qed2Kk4D70K3eVO9XCtwbmRlMzwHvaP1JkXUAyfyv/P/r3ZOSkA0mflPTWnCcMxbL+Gi6eZk2rkF2aJbDsbXT1SCUkuBW5p0g2yrocpTtCShgLZJryMpa0iKCyCD0m+SgwHOSZMqPQPlDJpnxsobDEhFinZHItp4asuuoUQWpRx5LTc9+XKcUm6ZsWSt6cFMkGEaYGjqTs8ceWkVQKAQI/hy39a6MqsmT80SljyepBP1DiRzuLtld1Q74+FzupmSeJ12ey2WBB8Wu9yN6+f5TFUGE5Rtk4=
